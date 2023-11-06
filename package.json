@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "test": "turbo run lint"
+  },
+  "devDependencies": {
+    "@mrizkiaiman/configs": "*",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.48.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.5",
+    "tsconfig": "*",
+    "turbo": "latest"
+  },
+  "name": "my-turborepo",
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  }
+}
